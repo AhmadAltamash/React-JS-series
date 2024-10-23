@@ -8,15 +8,15 @@ const initialState = {
 }
 
 export const todoSlice = createSlice({
-    name: 'todos',
+    name: 'todo',
     initialState,
     reducers: {
         addTodo: (state, action) => {
-            todos = {
+            const todo = {   // Use 'const' to declare the variable
                 id: nanoid(),
                 text: action.payload
-            },
-            state.todos.push(todo)
+            };
+            state.todos.push(todo);  // End with semicolon, not a comma
         },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter(todo => todo.id !== action.payload)

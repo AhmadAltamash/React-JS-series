@@ -11,7 +11,7 @@ function Todos() {
     <>
         <div>Todos</div>
         {todos.map((todo) => (
-            <li key={todo.id} className='list-none bg-blue-500 text-xl'> 
+            <li key={todo.id} className='list-none bg-blue-500 text-xl my-4'> 
                 {todo.text}
                 <button className='mx-8 text-xl text-red-700 font-extrabold' onClick={()=>{dispatch(removeTodo(todo.id))}}>X</button>
             </li>
