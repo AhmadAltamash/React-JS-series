@@ -5,6 +5,9 @@ import Container from "./container/Container.jsx"
 import Logo from "./Logo.jsx";
 import Button from "./Button.jsx";
 import Input from "./Input.jsx";
+import SignUp from "./SignUp.jsx";
+import Select from './Select.jsx'
+import RTE from './RTE.jsx'
 export {
     Header,
     Footer,
@@ -12,6 +15,8 @@ export {
     Container,
     Logo,
     Button,
-    Input
-    
+    Input,
+    SignUp,
+    Select,
+    RTE
 }

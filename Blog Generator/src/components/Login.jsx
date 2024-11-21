@@ -46,7 +46,7 @@ function Login() {
             {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
             <form onSubmit={handleSubmit(login)} className='mt-8'>
                 <div className='space-y-5'>
-                    <input 
+                    <Input 
                     type="email"
                     placeholder='Enter Your Email'
                     label="Email: "
@@ -57,10 +57,19 @@ function Login() {
                         }
                     })} 
                     />
-                    <input
-                    
+                    <Input
+                    type='password'
+                    placeholder='Password'
+                    label="Password: "
+                    {...register("password",{
+                        required: true,
+                        minLength: {
+                            value: 8,
+                            message: "Password must be at least 8 characters long"
+                        }
+                    })}
                     />
-                    
+                    <Button type='submit' className='w-max'>Sign In</Button>
                 </div>
             </form>
         </div>
