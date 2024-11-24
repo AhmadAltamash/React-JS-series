@@ -15,6 +15,7 @@ import AddPost from './pages/AddPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Post from './pages/Post.jsx'
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout authentication>
             {""}
-            <AddPost/>
+            <AddPost />
           </AuthLayout>
         )
       },
