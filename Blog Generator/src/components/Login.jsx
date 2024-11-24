@@ -49,7 +49,6 @@ function Login() {
                     <Input 
                     type="email"
                     placeholder='Enter Your Email'
-                    label="Email: "
                     {...register("email", {
                         required: true,
                         validate: {
@@ -60,7 +59,6 @@ function Login() {
                     <Input
                     type='password'
                     placeholder='Password'
-                    label="Password: "
                     {...register("password",{
                         required: true,
                         minLength: {

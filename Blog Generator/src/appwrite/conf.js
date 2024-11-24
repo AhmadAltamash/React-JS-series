@@ -1,8 +1,9 @@
 import config from "../config/config";
-import {Client, ID, Databases, Storage, Query} from "appwrite"
+import {Client, ID, Databases, Storage, Query, Account} from "appwrite"
 
 export class Services{
     client = new Client()
+    account;
     databases;
     bucket;
 
@@ -89,7 +90,7 @@ export class Services{
             )
 
         } catch (error) {
-            console.log("error")
+            console.log(error)
             return false
         }
     }

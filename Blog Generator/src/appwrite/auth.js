@@ -28,28 +28,29 @@ export class Authenticate {
         }
     }
 
-    async login({email,password}){
+    async login({ email, password }) {
         try {
-
-            return await this.account.createEmailPasswordSession(email,password)
-
+            const session = await this.account.createEmailPasswordSession(email, password);
+            console.log("Logged in:", session);
         } catch (error) {
-            throw error
+            console.log("Login failed:", error);
         }
     }
+    
 
-    async getCurrentUser({}){
+    async getCurrentUser() {
         try {
-            return await this.account.get()
-            
+            const user = await this.account.get();
+            console.log("Current User:", user);
+            return user;
         } catch (error) {
-            console.log(error)
+            console.log("No user logged in");
+            return null;
         }
-
-        return null;
     }
+    
 
-    async logout({}){
+    async logout(){
         try {
 
             return await this.account.deleteSessions()
