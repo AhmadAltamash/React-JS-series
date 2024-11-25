@@ -32,20 +32,14 @@ export class Authenticate {
     async login({ email, password }) {
         try {
             const session = await this.account.createEmailPasswordSession(email, password);
-            console.log("Logged in:", session);
-
-            // Fetch user data and dispatch login
             const userData = await this.getCurrentUser();
             if (userData) {
-                // Store user data in Redux
-                this.dispatch(login(userData));
-                // Also store in localStorage to persist across reloads
-                localStorage.setItem('user', JSON.stringify(userData));
+                this.dispatch(login(userData)); // Dispatch userData
             }
-
+            this.dispatch(setStatus('loggedIn')); // Set status explicitly
             return session;
         } catch (error) {
-            console.log("Login failed:", error);
+            console.error("Login failed:", error);
         }
     }
 
@@ -53,20 +47,27 @@ export class Authenticate {
         try {
             const user = await this.account.get();
             console.log("Current User:", user);
+    
+            // Dispatch login action to update Redux
+            if (this.dispatch) {
+                this.dispatch(login(user));
+            }
+    
             return user;
         } catch (error) {
             console.log("No user logged in");
             return null;
         }
     }
+    
 
     async logout() {
         try {
             await this.account.deleteSessions();
-            this.dispatch(logout()); // Dispatch logout to update Redux state
-            localStorage.removeItem('user'); // Remove user data from localStorage
+            this.dispatch(logout()); // Clear userData
+            this.dispatch(setStatus('loggedOut')); // Set status explicitly
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 }
