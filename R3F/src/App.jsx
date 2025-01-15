@@ -8,7 +8,8 @@ const App = () => {
       <OrbitControls enableZoom={true} enablePan enableRotate />
 
       <DirectionalLight position={[1, 1, 1]} intensity={10} color={0x9CDBA6} />
-    </Canvas>
+      
+      </Canvas>
   )
 };
 
