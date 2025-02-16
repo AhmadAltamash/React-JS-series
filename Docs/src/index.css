@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Gilroy;
+  src: url(./assets/Gilroy-Regular.ttf);
+}
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+  font-family: Gilroy;
+}
+::selection{
+  color: #a93f3f;
+}
